@@ -1,0 +1,14 @@
+{
+    "name": "File Maneger",
+    "description": "An app to view files.",
+    "author": "Inverter Technologies",
+    "icon": "icon.png",
+    "index": "index.html",
+    "type": "system",
+    "window": {
+        "width": "1061px",
+        "height": "676px",
+        "windowColor": "#0288D1",
+        "textColor": "White"
+    }
+}

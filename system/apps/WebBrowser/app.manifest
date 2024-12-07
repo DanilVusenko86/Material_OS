@@ -1,0 +1,15 @@
+{
+  "name": "Web Browser",
+  "description": "Material OS Web Browser",
+  "developer": "Inverter Technologies",
+  "url": "https://invertertechnologies.netlify.app",
+  "icon": "icon.png",
+  "index": "/index.html",
+  "type": "system",
+  "window": {
+    "width": "923px",
+    "height": "571px",
+    "windowColor": "#212121",
+    "textColor": "white"
+  }
+}

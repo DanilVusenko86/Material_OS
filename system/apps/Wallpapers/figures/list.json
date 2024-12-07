@@ -1,0 +1,17 @@
+[
+    { "name": "Wallpaper 1", "url": "3.jpg" },
+    { "name": "Wallpaper 2", "url": "4.jpg" },
+    { "name": "Wallpaper 3", "url": "5.jpg" },
+    { "name": "Wallpaper 4", "url": "6.jpg" },
+    { "name": "Wallpaper 5", "url": "7.jpg" },
+    { "name": "Wallpaper 6", "url": "8.jpg" },
+    { "name": "Wallpaper 7", "url": "11.png" },
+    { "name": "Wallpaper 8", "url": "12.jpg" },
+    { "name": "Wallpaper 9", "url": "13.png" },
+    { "name": "Wallpaper 10", "url": "13.jpg" },
+    { "name": "Wallpaper 11", "url": "14.jpg" },
+    { "name": "Wallpaper 12", "url": "15.jpg" },
+    { "name": "Wallpaper 13", "url": "16.jpg" },
+    { "name": "Wallpaper 14", "url": "17.jpg" },
+    { "name": "Wallpaper 15", "url": "18.jpg" }
+]

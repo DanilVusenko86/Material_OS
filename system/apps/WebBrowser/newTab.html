@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link href="css/icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/tab.css">
+    <link rel="stylesheet" href="css/font.css">
+    <title>New Tab</title>
+</head>
+<body class="grey darken-2">
+    
+    <div class="row">
+        <div class="col s12 m20">
+            <div class="card-panel grey darken-3">
+                <div class="conteiner">
+                    <img src="brending.png" width="150px">
+                    <div class="searchbar"><input type="text" id="search" placeholder="Search"><a id="btn" class="btn-floating btn-small waves-effect waves-light"><i class="material-icons">search</i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const searchBTN = document.getElementById('btn')
+
+        searchBTN.addEventListener('click', () => {
+            const search = document.getElementById('search').value;
+            document.location = 'https://www.google.com/search?q=' + search;
+        })
+
+    </script>
+
+    <script src="js/materialize.js"></script>
+</body>
+</html>

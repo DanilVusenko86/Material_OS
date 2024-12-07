@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link href="css/icon.css" rel="stylesheet">
+    <title>Settings</title>
+</head>
+<body>
+    <nav id="bar">
+        <div class="nav-wrapper blue-grey darken-3">
+          <h4 class="brand-logo left white-text">Settings</h4>
+        </div>
+    </nav>
+    
+    <!--items panel-->
+    <div id="panelsBar" class="row">
+        <div id="items-panel" class="col s12 m4">
+          <div class="card-panel white">
+            
+                <!--WiFi item-->
+                <a id="wifiBtn" href="#wifi" class="black-text"><i class="tiny material-icons">wifi</i> Wi-Fi 
+                  <div class="switch right">
+                    <label><input type="checkbox">
+                      <span class="lever"></span>
+                    </label>
+                  </div>
+                </a><br><br>
+                 
+                <!--Bluetooth item-->
+                <a id="bluetoothBtn" href="#bluetooth" class="black-text"><i class="tiny material-icons">bluetooth</i> bluetooth 
+                  <div class="switch right">
+                    <label>
+                      <input type="checkbox">
+                      <span class="lever"></span>
+                    </label>
+                  </div></a><br><br>
+
+                <!--Account item-->
+                <a id="accountBtn" href="#accounts" class="black-text"><i class="tiny material-icons">person</i> Accounts</a><br><br>
+
+                <!--Update item-->
+                <a id="updateBtn" href="#update" class="black-text"><i class="tiny material-icons">system_update_alt</i> Update</a><br><br>
+
+                <!--Apps item-->
+                <a id="aboutBtn" href="#apps" class="black-text"><i class="tiny material-icons">apps</i> Apps</a><br><br>
+
+                <!--About item-->
+                <a id="aboutBtn" href="#about" class="black-text"><i class="tiny material-icons">info</i> About</a>
+
+          </div>
+        </div>
+        
+        <!--Wifi panel-->
+        <div id="wifi" class="col s12 m8 right">
+          <div class="card-panel white">
+
+            <h4><i class="small material-icons">wifi</i> Wi-Fi</h4><div class="switch right"><label><input type="checkbox" id="wifi-switch"><span class="lever"></span></label></div>
+            <ul id="wifi-list" style="overflow-y: auto;" class="collection"></ul>
+                
+                <div id="wifi-password-panel" style="display: none;">
+                  <h5>Enter Password</h5>
+                  <input id="password-input" type="password" placeholder="Password">
+                  <button id="connect-btn" class="modal-close waves-effect waves-green btn-flat">Connect</button>
+                </div>
+          </div>
+        </div>
+
+        <!--Bluetooth panel-->
+        <div id="bluetooth" class="col s12 m8 right">
+          <div class="card-panel white">
+
+            <h4><i class="small material-icons">bluetooth</i> Bluetooth</h4><div class="switch right"><label><input type="checkbox" id="bluetooth-switch"><span class="lever"></span></label></div>
+
+            <ul id="device-list" style="overflow-y: auto;" class="collection grey-text text-darken-3"></ul>
+            <p id="connection-status"></p>
+          </div>
+        </div>
+
+        <!--Accounts panel-->
+        <div id="accounts" class="col s12 m8 right">
+          <div class="card-panel white">
+
+            <h4><i class="small material-icons">person</i> Accounts</h4>
+
+            <div id="avatar"></div>
+            
+            <input type="text" id="accountName" class="black-text" placeholder="Some Text"></input>
+            <input type="password" id="accountPassword" class="black-text" placeholder="Enter a new Password"></input>
+            <a id="updateDataBtn" class="waves-effect waves-light teal-text">Update account</a>
+
+            <div id="account">
+
+              <h4><i class="small material-icons">dashboard_customize</i> Personalize</h4>
+
+              <input type="file" id="avatarSelector" class="grey lighten-2 z-depth-2"><br><br>
+              
+              <div id="avatarsList">
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!--Update panel-->
+        <div id="update" class="col s12 m8 right">
+          <div class="card-panel white">
+
+            <h4><i class="small material-icons">system_update_alt</i> Update</h4>
+            
+            <div class="conteiner">
+
+              <img src="../../img/branding.png" width="100px">
+              
+              <p style="margin-top: -45px; font-size: 24px;" class="black-text">Material OS</p>
+              <p style="margin-top: -105px;" id="verLoad"></p>
+
+            </div>
+            <a class="teal-text" id="checkbtn" style="
+                margin-top: -10px;
+                float: right;
+                cursor: pointer;
+            ">Check</a>
+          </div>
+        </div>
+
+        <!--Apps panel-->
+        <div id="apps" class="col s12 m8 right">
+          <div class="card-panel white">
+
+            <h4><i class="small material-icons">apps</i> Apps</h4>
+            
+            <div id="app-list">
+                <!--Apps-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <div style="width: 345px; display: flex; align-items: center; justify-content: space-between;">
+              <img src="" id="appIcon" width="100px" height="100px">
+              <h4 style="text-align: left;" id="appNameInfo">Name</h4>
+            </div>
+            <p id="description">Never Gonna Give You Up !</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" id="unistall" class="red-text modal-close waves-effect waves-black btn-flat">Unistall</a>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="update-modal" class="modal">
+          <div class="modal-content">
+            <h4 id="modal-title">Title</h4>
+            <p id="modal-content">Content</p>
+          </div>
+          <div class="modal-footer" id="footer">
+          </div>
+        </div>
+
+        
+
+        <!--About panel-->
+        <div id="about" class="col s12 m8 right">
+          <div class="card-panel white">
+            <h4><i class="small material-icons">info</i> About</h4>
+
+            <div class="BannerConteiner"><img src="../../img/branding.png" width="65px"><h3 class="black-text">Material</h3><h3 class="light-blue-text">OS</h3></div>
+            <p id="versionNum"></p>
+            <p id="tag"></p>
+          </div>
+        </div>
+    </div>
+    <script type="module">
+      const versionManifest = await fetch('../../version.json').then(res => res.json());
+      versionNum.textContent = `version: ${versionManifest.version}`;
+      tag.textContent = `redaction: ${versionManifest.versionTag}`;
+
+      document.getElementById('verLoad').textContent = `Version: ${versionManifest.version}`;
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script src="js/wifiSettings.js"></script>
+    <script src="js/bluetoothController.js"></script>
+    <script src="js/updater.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link href="css/icon.css" rel="stylesheet">
+
+    <title>Gallery</title>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper" style="background-color: #ffffff;">
+      <a href="#" class="brand-logo grey-text text-darken-4 left">Gallery</a>
+    </div>
+  </nav>
+
+  <div class="gallery-app">
+    <div class="gallery">
+      <div class="row" id="photoGrid" style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
+        <!-- Dynamically generated photo grid will go here -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for photo viewer -->
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <h4>Photo Viewer</h4>
+      <div class="row">
+        <div class="col s12 m12">
+          <!-- Media object layout -->
+          <div class="card horizontal">
+            <div class="card-image">
+              <img id="modalImage" src="" alt="Photo" class="responsive-img">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p><strong>File Name:</strong> <span id="fileName"></span></p>
+                <p><strong>Date Taken:</strong> <span id="dateTaken"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close waves-effect waves-green btn-flat">Close</button>
+    </div>
+  </div>
+  
+  
+      
+      <script src="js/materialize.js"></script>
+      <script src="js/app.js"></script>
+</body>
+</html>

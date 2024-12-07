@@ -1,0 +1,66 @@
+.window {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    resize: both;
+}
+
+.window .title-bar {
+    padding: 1px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.window .close-btn {
+    border: none;
+    color: white;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.window .minimize-btn {
+    border: none;
+    color: white;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.window .maximize-btn {
+    border: none;
+    color: white;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.title {
+    margin: 0 auto;
+}
+
+.window iframe {
+    background-color: white;
+    flex: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+}

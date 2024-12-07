@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Out Of Box Experience</title>
+    <link rel="stylesheet" href="materialize.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .oobe-container {
+            text-align: center;
+            margin-right: 15px;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+    <link href="css/materialize.css" rel="stylesheet">
+    <link href="css/font.css" rel="stylesheet">
+    <link href="css/icon.css" rel="stylesheet">
+</head>
+<body>
+    <div style="position: fixed; top: 0; bottom: 0; left: 0; width: 15%; height: 100%; background-image: url('img/banner.jpg'); background-size: cover;"></div>
+
+    <div class="oobe-container" id="first">
+        <h4>Welcome to Material OS!</h4>
+        <p>Set up your account:</p>
+        <div class="input-field">
+            <input id="username" type="text">
+            <label for="username">Account Name</label>
+        </div>
+        <div class="input-field">
+            <input id="password" type="password">
+            <label for="password">Password (optional)</label>
+        </div>
+        <button id="finish" class="teal-text" style="
+        border: none;
+        background: none;
+        float: right;
+        margin-top: 26px;
+        margin-bottom: -10px;
+    ">Next</button>
+    </div>
+
+    <div id="wifi-menu" class="oobe-container" style="display: none; width: 454px;">
+        <div style="display: flex; justify-content: space-around; align-items: center;"><i class="material-icons left grey-text text-darken-3">signal_wifi_statusbar_4_bar</i><h5 class="left grey-text text-darken-3">Wi-Fi</h5><div class="switch right"><label><input type="checkbox" id="wifi-switch"><span class="lever"></span></label></div></div>
+
+        <ul id="wifi-list" style="overflow-y: auto; height: 224px;" class="collection grey-text text-darken-3">
+        </ul>
+        <button id="finish-setup" class="teal-text" style="
+        border: none;
+        background: none;
+        float: right;
+        margin-top: 26px;
+        margin-bottom: -10px;
+    ">Finish Setup</button>
+
+        <div id="password-modal" class="modal">
+            <div class="modal-content">
+              <h5>Enter Password</h5>
+              <input id="password-input" type="password" placeholder="Password">
+            </div>
+            <div class="modal-footer">
+              <button id="connect-btn" class="modal-close waves-effect waves-black teal-text btn-flat">Connect</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/materialize.js"></script>
+    <script src="js/wifiSettings.js"></script>
+    <script>
+        document.getElementById('finish').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username.trim() === '') {
+                M.toast({html: 'Account name is required!'});
+                return;
+            }
+            
+            const avatar = '../img/avatars/avatar.png';
+            const userData = { username, password };
+
+            // Save account details to localStorage
+            localStorage.setItem('os-account', JSON.stringify(userData));
+
+            // Save account img to localStorage
+            localStorage.setItem('avatar-account', JSON.stringify(avatar));
+
+            document.getElementById('first').style.display = 'none';
+            document.getElementById('wifi-menu').style.display = '';
+        });
+        document.getElementById('finish-setup').addEventListener('click', function () {
+
+            // Set a flag to indicate that OOBE has been completed
+            localStorage.setItem('oobe-completed', 'true');
+
+            // Redirect to OS home page (index.html)
+            window.location.href = '../../index.html';
+        });
+    </script>
+</body>
+</html>

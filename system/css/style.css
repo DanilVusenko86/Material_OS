@@ -1,0 +1,135 @@
+#close {
+    cursor: pointer;
+}
+.card {
+    margin-bottom: 15px;
+    width: 400px;
+    height: 100px;
+}
+.card-content {
+    width: 400px;
+    height: 50px;
+}
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 170px;
+    margin-bottom: 18px;
+    margin-left: -5px;
+}
+.Switches {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+.collection {
+    width: 400px;
+    height: calc(550px - 250px);
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+/* ======== Login Components ======== */
+
+#login-password {
+    color: white;
+}
+
+/* ======== Functions Menu Components ======== */
+
+.action-Conteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ======== Panels Buttons ======== */
+
+#toggle-app {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5000;
+    border-radius: 50%;
+}
+.functions-button {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 5000;
+    
+}
+
+/* Hovers */
+
+#toggle-app:hover {
+    width: 40px;
+    height: 40px;
+    background-color: #424242;
+    border: none;
+    color: #03a9f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5000;
+    border-radius: 50%;
+}
+.functions-button:hover {
+    height: 40px;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 5000;
+
+}
+#toggle-functions:hover {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    font-size: 20px;
+    color: #ffffff;
+    border-bottom: 2px solid #009688;
+    cursor: pointer;
+    margin-left: 6px;
+    background-color: transparent;
+}
+
+#toggle-functions {
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 6px;
+    background-color: transparent;
+}
+#brightness-slider {
+    border: none;
+    width: 100%;
+    background-color: #34495e;
+}

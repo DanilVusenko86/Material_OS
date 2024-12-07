@@ -1,0 +1,14 @@
+{
+    "name": "Gallery",
+    "description": "Material OS Photo Gallery.",
+    "author": "Inverter Technologies",
+    "icon": "icon.png",
+    "index": "index.html",
+    "type": "system",
+    "window": {
+        "width": "813px",
+        "height": "523px",
+        "windowColor": "#EEEEEE",
+        "textColor": "black"
+    }
+}

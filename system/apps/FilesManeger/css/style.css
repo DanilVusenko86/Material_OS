@@ -1,0 +1,76 @@
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+li, h1, h2, h3, h4, h5, h6, a, p {
+  color: #383838;
+}
+
+.sidebar {
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+.collection .collection-item i {
+  color: #727272;
+}
+
+.sidebar .collection-item {
+  font-size: 14px;
+}
+
+.breadcrumb-nav {
+  margin: 0 20px;
+  background: transparent;
+}
+
+.file-list-header {
+  font-weight: bold;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.file-list {
+  margin-top: 0;
+  height: 497px;
+  overflow-y: auto;
+}
+.file-list::-webkit-scrollbar {
+  height: 5px;
+  background-color: #f7f7f7;
+}
+.file-list::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #838383;
+}
+
+.file-item {
+  padding: 10px 20px;
+  color: #383838;
+}
+
+.file-item i {
+  color: #727272;
+}
+
+.file-item:hover {
+  background-color: #f1f1f1;
+}
+
+.action-bar {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+.action-bar i {
+  margin-right: 10px;
+  color: white;
+  
+}
+
+.modal {
+  max-width: 400px;
+}

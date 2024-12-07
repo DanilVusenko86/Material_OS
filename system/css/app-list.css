@@ -1,0 +1,41 @@
+/* Material OS App List Components */
+
+#app-search {
+    width: 100%;
+    height: 55px;
+    border: none;
+    color: #424242;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#app-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to a new line */
+    margin-top: 65px;
+}
+
+#app-list li {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+    color: rgba(0, 0, 0, 0.679);
+    cursor: pointer;
+    display: flex; /* Use flexbox for proper alignment */
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+}
+
+#app-list li img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px; /* Add some space between the icon and the label */
+}

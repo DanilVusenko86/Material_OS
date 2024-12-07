@@ -1,0 +1,15 @@
+{
+  "name": "Music Player",
+  "description": "Material OS Music Player",
+  "developer": "Inverter Technologies",
+  "url": "https://invertertechnologies.netlify.app",
+  "icon": "img/icon.webp",
+  "index": "/index.html",
+  "type": "system",
+  "window": {
+    "width": "923px",
+    "height": "571px",
+    "windowColor": "#ff9800",
+    "textColor": "white"
+  }
+}

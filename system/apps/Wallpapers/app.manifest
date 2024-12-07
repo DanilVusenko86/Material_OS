@@ -1,0 +1,14 @@
+{
+    "name": "Wallpaper App",
+    "description": "An app to change the system wallpaper.",
+    "author": "Inverter Technologies",
+    "icon": "icon.png",
+    "index": "index.html",
+    "type": "system",
+    "window": {
+        "width": "813px",
+        "height": "523px",
+        "windowColor": "#EEEEEE",
+        "textColor": "Black"
+    }
+}

@@ -1,0 +1,33 @@
+#boot-animation {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+/* Logo styles */
+.boot-logo {
+    width: 150px;
+    height: 150px;
+    animation: logoFadeIn 2s ease-in-out;
+}
+
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

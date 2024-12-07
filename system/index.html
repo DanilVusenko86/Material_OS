@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaterialOS</title>
+
+    <!--Material OS Main Style Sheets-->
+
+    <link href="css/icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/materialize.css">
+
+    <link rel="stylesheet" href="css/system.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/app-list.css">
+    <link rel="stylesheet" href="css/panels.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/calendarCard.css">
+    <link rel="stylesheet" href="css/weatherCard.css">
+    <link rel="stylesheet" href="css/loginStyle.css">
+
+    <link rel="stylesheet" href="css/bootanim.css">
+    <link rel="stylesheet" href="css/install.css">
+    
+</head>
+
+<body onload="startTime()">
+
+    <!--Boot Anim-->
+    <div id="boot-animation">
+        <div class="logo-container">
+            <img src="img/branding.png" alt="Logo" width="150px" class="boot-logo">
+        </div>
+        <div class="progress" style="width: 200px;">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+    
+
+    <!--App Menu-->
+    <div id="app-menu" class="z-depth-1">
+        <input type="text" id="app-search" onkeyup="search_apps()" placeholder="Search Apps...">
+        <ul id="app-list">
+            <!-- App icons and names will be dynamically loaded here -->
+        </ul>
+    </div>
+   
+
+    <div id="control-panels">
+
+            <!-- tools menu -->
+            <div id="functions-menu" class="z-depth-1">
+
+                <!--Status Buttons Panel-->
+                <div class="status">
+                    <div id="Avatar"></div>
+                    <a id="powerOff" class="btn-floating btn-small waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">power_settings_new</i></a>
+                    <a id="restart" class="btn-floating btn-small waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">restart_alt</i></a>
+
+                </div>
+
+                <!--Switches for System Control-->
+                <div class="Switches">
+                    <a id="wifi" class="btn-floating btn-large waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">wifi</i></a>
+                    <a id="bluetooth" class="btn-floating btn-large waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">bluetooth</i></a>
+                    <a id="settings" class="btn-floating btn-large waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">settings</i></a>
+                    <a id="batterySaver" class="btn-floating btn-large waves-effect waves-light grey lighten-3"><i class="material-icons grey-text">battery_saver</i></a>
+                </div>
+
+                <!--Actions-->
+                <div class="action-Conteiner">
+                    <i class="material-icons grey-text">brightness_6</i><input type="range" id="brightness-slider" min="0" max="100" value="50">
+                </div>
+                <div class="action-Conteiner">
+                    <i class="material-icons grey-text">volume_up</i><input type="range" id="volumeSlider" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <!--Wi-fi Menu-->
+            <div id="wifi-menu" class="menu z-depth-1">
+                <a id="close"><i class="material-icons left grey-text text-darken-3">arrow_back</i></a><div style="display: flex; justify-content: space-around; align-items: center; width: 175px; margin-top: -10px;"><i class="material-icons left grey-text text-darken-3">signal_wifi_statusbar_4_bar</i><h5 class="left grey-text text-darken-3">Wi-Fi</h5><div class="switch right"><label><input type="checkbox" id="wifi-switch"><span class="lever"></span></label></div></div>
+                
+                <ul id="wifi-list" style="overflow-y: auto;" class="collection grey-text text-darken-3">
+                </ul>
+                
+                <div id="password-modal" class="modal">
+                    <div class="modal-content">
+                      <h5 class="grey-text text-darken-4">Enter Password</h5>
+                      <input class="grey-text text-darken-4" id="password-input" type="password" placeholder="Password">
+                    </div>
+                    <div class="modal-footer">
+                      <button id="connect-btn" class="modal-close waves-effect waves-black teal-text btn-flat">Connect</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Bluetooth Menu-->
+            <div id="bluetooth-menu" class="menu z-depth-1">
+                <a id="bclose"><i class="material-icons left grey-text text-darken-3">arrow_back</i></a><div style="display: flex; justify-content: space-around; align-items: center; width: 175px; margin-top: -10px;"><i class="material-icons left grey-text text-darken-3">bluetooth</i><h5 class="left grey-text text-darken-3">bluetooth</h5><div class="switch right"><label><input type="checkbox" id="bluetooth-switch"><span class="lever"></span></label></div></div>
+                
+                <ul id="device-list" style="overflow-y: auto;" class="collection grey-text text-darken-3"></ul>
+                <p id="connection-status"></p>
+                
+            </div>
+    </div>
+
+    <!--Desktop Element-->
+    <div id="desktop">
+        <!-- App windows will be dynamically added here -->
+    </div>
+
+    <!--Bottom Panel-->
+    <div id="bottom-panel">
+
+        <!--App Menu BTN-->
+        <div class="apps-buttons">
+
+            <button class="operator waves-effect waves-ligt" id="toggle-app">
+                <i class="material-icons">apps</i>
+            </button>
+
+            <!--Opened Apps Icons-->
+            <div id="opened-apps"></div>
+        </div>
+
+        <!--Toggle control panel-->
+        <div class="functions-button">
+
+            <!--Clock-->
+            <div style="font-size: 13px;" id="time"></div>
+
+            <button class="operator waves-effect waves-ligt" id="toggle-functions">
+
+                <div id="noutifiBox"></div><div id="wifiIcon"></div><div id="battery"></div>
+                <div id="bottomAvatar"></div>
+
+            </button>
+        </div>
+    </div>
+
+    <!-- Login Screen Overlay -->
+    <div id="login-screen" class="login-overlay">
+
+        <div class="login-panel">
+
+            <div class="LoginCard z-depth-1">
+
+                <div id="account-list">
+                    <!-- Account details will be dynamically inserted here -->
+                </div>
+
+                <div class="login-input">
+
+                    <input type="password" id="login-password" class="grey-text text-darken-3" placeholder="Enter your password">
+
+                    <button class="operator waves-effect waves-dark" id="login-button">
+                        <i class="material-icons grey-text text-darken-3">login</i>
+                    </button>
+
+                </div>
+            </div>
+            <div class="powerPanel">
+                <a id="powerOff" class="btn waves-effect waves-light grey darken-4"><i class="material-icons white-text">power_settings_new</i></a>
+                <a id="restart" class="btn waves-effect waves-light grey darken-4"><i class="material-icons white-text">restart_alt</i></a>
+            </div>
+        </div>
+    </div>
+
+    <!--Calendar Widget-->
+    <div id="calendar" class="calendar">
+        <div class="calendar-header">
+            <div class="date-info">
+                <div id="current-year" class="year-selector">2024</div>
+                <div id="current-day-name">Fri</div>
+                <div id="current-month">Sep</div>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="naviBar">
+                <button class="operator waves-effect waves-dark" id="prev-month">
+                    <i class="material-icons" style="font-size: 10px;">arrow_back_ios</i>
+                </button>
+                <span class="calendar-title"></span>
+                <button class="operator waves-effect waves-dark" id="next-month">
+                    <i class="material-icons" style="font-size: 10px;">arrow_forward_ios</i>
+                </button>
+            </div>
+            <div class="dateNames">
+                <h6>M</h6>
+                <h6>T</h6>
+                <h6>W</h6>
+                <h6>T</h6>
+                <h6>F</h6>
+                <h6>S</h6>
+                <h6>S</h6>
+            </div>
+            <div id="calendar-days"></div>
+        </div>
+    </div>
+
+    <!--Weather Card-->
+    <div class="row" id="weatherCard">
+        <div class="col s12 m13">
+            <div class="card-panel white">
+                <h5 id="city">Fetching Location...</h5>
+                <p class="grey-text darken-4 status" id="description">--</p>
+    
+                <div class="weather-icon">
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <h1 class="temperature" id="temperature">--°C</h1>
+                </div>
+    
+                <div class="extra-info">
+                    <div>
+                        <i class="material-icons">air</i>
+                        <span id="wind-speed">-- km/h</span>
+                    </div>
+                    <div>
+                        <i class="material-icons">opacity</i>
+                        <span id="humidity">--%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Install Panel-->
+    <div id="install-panel" style="display: none;">
+        <div class="install-window z-depth-2">
+            <div id="install-header" style="font-size: large; margin-top: 5px; margin-left: 5px;"></div>
+            <p id="app-name" style="margin-left: 5px;"></p>
+            <p id="app-developer" style="margin-left: 5px;"></p>
+            <div class="nav">
+                <a id="install-button" class="waves-effect waves-light teal-text">Install</a>
+                <a id="close-button" class="waves-effect waves-light teal-text">Close</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Materialize-->
+    <script src="js/materialize.js"></script>
+
+    <!--System-->
+    <script src="js/wallpaperMana.js"></script>
+    <script src="js/batteryController.js"></script>
+    <script src="js/bootanim.js"></script>
+    <script src="js/messagesManager.js"></script>
+
+    <!--Install JS -->
+    <script src="js/installApp.js"></script>
+    <script src="js/jszip.min.js"></script>
+
+    <!--Window Manager-->
+    <script src="js/windowManager.js"></script>
+
+    <!--Panels and their components-->
+    <script src="js/panels.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/switchesController.js"></script>
+    <script src="js/bluetoothController.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/brightness.js"></script>
+    <script src="js/wifiManager.js"></script>
+    <script src="js/wifiSettings.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/accountManager.js"></script>
+    <script src="js/volumeController.js"></script>
+    
+</body>
+</html>

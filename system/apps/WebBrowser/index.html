@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar">
+    <i id="prev" class="material-icons">arrow_back</i>
+    <i id="next" class="material-icons">arrow_forward</i>
+    <div class="input-field">
+      <input id="url" type="text" placeholder="Search or enter URL">
+    </div>
+    <i id="refresh" class="material-icons">refresh</i>
+    <i id="go" class="material-icons">search</i>
+  </div>
+
+  <ul class="tabs" id="tabs">
+    <li class="tab"><a href="#" onclick="addTab()">+</a></li>
+  </ul>
+
+  <div id="browser"></div>
+
+  <script src="js/materialize.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background: #fafafa;
+}
+
+#category-list {
+    margin: 20px auto;
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+}
+
+#category-list button {
+    margin-right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 2px;
+}
+
+#wallpaper-list {
+    width: 100%;
+    display: inline;
+}
+
+.wallpaper-item {
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    width: 175px;
+    height: 190px;
+    background-color: #ffffff;
+}
+
+.wallpaper-item img {
+    width: 175px;
+    height: 136px;
+    object-fit: cover;
+    display: inline-block;
+}
+#PanelText {
+    font-size: 25px;
+    color: #595959;
+}
+#preview {
+    width: 400px;
+    height: 200px;
+    background-size: cover;
+    
+    border-radius: 2px;
+    margin: 10px auto;
+}

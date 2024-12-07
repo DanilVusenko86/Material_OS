@@ -1,0 +1,15 @@
+{
+  "name": "Calculator",
+  "description": "Material OS Calculator",
+  "developer": "mkspcd",
+  "url": "https://github.com/mkspcd/CalculatorJS",
+  "icon": "icon.png",
+  "type": "system",
+  "index": "/index.html",
+  "window": {
+    "width": "306px",
+    "height": "557px",
+    "windowColor": "#EEEEEE",
+    "textColor": "Black"
+  }
+}

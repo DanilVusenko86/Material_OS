@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link href="css/icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Material OS Camera</title>
+</head>
+<body>
+    <!-- Camera app layout similar to old Google Camera -->
+    <div class="camera-container">
+        <!-- Video stream -->
+        <div class="video-container">
+            <video id="video" autoplay></video>
+        </div>
+
+        <!-- Mode Selector (Photo, Video) -->
+        <div class="mode-selector">
+            <a href="#" id="photoMode"><i class="material-icons">camera_alt</i> Photo</a>
+            <a href="#" id="videoMode"><i class="material-icons">videocam</i> Video</a>
+        </div>
+
+        <!-- Camera Capture Button -->
+        <div class="camera-controls">
+            <div class="capture-button" id="captureButton">
+                <i class="material-icons" id="captureIcon">camera_alt</i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for capturing photo -->
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <!-- For downloading video -->
+    <a id="downloadLink" style="display:none;">Download video</a>
+
+    <script src="js/app.js"></script>
+    <script src="js/materialize.js"></script>
+</body>
+</html>

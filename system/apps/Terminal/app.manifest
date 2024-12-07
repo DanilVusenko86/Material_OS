@@ -1,0 +1,14 @@
+{
+    "name": "Terminal",
+    "description": "Material OS Terminal App",
+    "author": "Inverter Technologies",
+    "icon": "icon.png",
+    "index": "index.html",
+    "type": "system",
+    "window": {
+        "width": "813px",
+        "height": "523px",
+        "windowColor": "#212121",
+        "textColor": "white"
+    }
+}

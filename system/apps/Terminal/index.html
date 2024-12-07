@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xterm.js MATERIAL OS Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@4.14.0/css/xterm.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xterm@4.14.0/lib/xterm.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #terminal {
+            width: 100%;
+            height: 100%;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+    <script>
+        const { exec } = require('child_process');
+
+        const term = new Terminal({
+            cursorBlink: true,
+            fontSize: 14,
+        });
+        term.open(document.getElementById('terminal'));
+
+        // Function to resize the terminal
+        const resizeTerminal = () => {
+            const element = document.getElementById('terminal');
+            const width = Math.floor(element.clientWidth / term._core._renderService.dimensions.actualCellWidth);
+            const height = Math.floor(element.clientHeight / term._core._renderService.dimensions.actualCellHeight);
+            term.resize(width, height);
+        };
+
+        // Resize on window resize
+        window.addEventListener('resize', resizeTerminal);
+        resizeTerminal(); // Initial resize
+
+        // ASCII Art Logo for MATERIAL OS
+        const logo = [
+            "",
+            " ███╗   ███╗ █████╗ ████████╗███████╗██████╗ ██╗ █████╗ ██╗          ██████╗ ███████╗",
+            " ████╗ ████║██╔══██╗╚══██╔══╝██╔════╝██╔══██╗██║██╔══██╗██║         ██╔═══██╗██╔════╝",
+            " ██╔████╔██║███████║   ██║   █████╗  ██████╔╝██║███████║██║         ██║   ██║███████╗",
+            " ██║╚██╔╝██║██╔══██║   ██║   ██╔══╝  ██╔══██╗██║██╔══██║██║         ██║   ██║╚════██║",
+            " ██║ ╚═╝ ██║██║  ██║   ██║   ███████╗██║  ██║██║██║  ██║███████╗    ╚██████╔╝███████║",
+            " ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚══════╝",
+        ];
+
+
+        // Write the ASCII art logo to the terminal
+        logo.forEach(line => term.write(line + '\r\n'));
+
+        term.write('Welcome to MATERIAL OS terminal!\r\n');
+
+        // Command execution logic
+        const commands = {
+            'help': () => 'Available commands: ls, echo [text], install-h\r\n',
+            'ls': () => 'file1.txt\r\nfile2.txt\r\nfolder1\r\n',
+            'echo': (args) => args.join(' ') + '\r\n',
+            'install-h': () => 'Insta;; 0.1 \r\n install-w [path to app in zip on server]\r\n install-p [path to app in zip on local]\r\n install-s [package name]\r\n',
+            'install-w': (package) => {
+                const manifest = {
+                    name: 'app.name',
+                    patch: `https://materialmarket.netlify.app/apps/${package}/package/app.zip`,
+                    developer: 'app.author.name'
+                };
+                
+                window.parent.postMessage({ type: 'installApp', manifest }, '*'); + '\r\n'
+            },
+            'install-p': (package) => {
+                const manifest = {
+                    name: 'app.name',
+                    patch: package,
+                    developer: 'app.author.name'
+                };
+                
+                window.parent.postMessage({ type: 'installApp', manifest }, '*'); + '\r\n'
+            },
+            'install-s': (pacmanPackage) => {
+                const spawn = require('child_process').spawn; // Use spawn for real-time output
+
+                // Add '--noconfirm' to skip confirmation prompts
+                const pacman = spawn('pacman', ['-S', '--noconfirm', pacmanPackage]);
+
+                pacman.stdout.on('data', (data) => {
+                    term.write(data.toString()); // Write stdout data to the terminal
+                });
+
+                pacman.stderr.on('data', (data) => {
+                    term.write('\x1b[31m' + data.toString() + '\x1b[0m'); // Write stderr data in red color
+                });
+
+                pacman.on('close', (code) => {
+                    if (code === 0) {
+                        term.write('\r\nInstallation completed successfully.\r\n');
+                    } else {
+                        term.write(`\r\nInstallation failed with exit code ${code}.\r\n`);
+                    }
+                    term.write('$ '); // Prompt for the next command
+                });
+            },
+
+            'run': (args) => {
+                if (!args || args.length === 0) {
+                    return 'Error: Please specify an application to run.\r\n';
+                }
+
+                const appName = args[0]; // The application name or command to run
+                const execCommand = args.join(' '); // Full command including arguments
+
+                const child = exec(execCommand, (error, stdout, stderr) => {
+                    if (error) {
+                        term.write(`\x1b[31mError: ${error.message}\x1b[0m\r\n`); // Display error in red
+                        return;
+                    }
+                    if (stderr) {
+                        term.write(`\x1b[33m${stderr}\x1b[0m\r\n`); // Display stderr in yellow
+                    }
+                    if (stdout) {
+                        term.write(stdout); // Display standard output
+                    }
+                    term.write('\r\n$ '); // Prompt for the next command
+                });
+
+                child.on('exit', (code) => {
+                    term.write(`\r\nProcess exited with code ${code}.\r\n`);
+                    term.write('$ '); // Prompt for the next command
+                });
+            },
+        };
+
+        let currentInput = ''; // Variable to hold the current command input
+
+        // Handle user input
+        term.onData(data => {
+            switch (data) {
+                case '\r': // Enter
+                    term.write('\r\n');
+                    if (currentInput) {
+                        const [cmd, ...args] = currentInput.split(' ');
+                        if (commands[cmd]) {
+                            term.write(commands[cmd](args) || '');
+                        } else {
+                            term.write('Command not found: ' + cmd + '\r\n');
+                        }
+                        currentInput = ''; // Clear the input after execution
+                    }
+                    term.write('\r\n$ '); // Prompt for the next command
+                    break;
+                case '\u007F': // Backspace
+                    if (currentInput.length > 0) {
+                        currentInput = currentInput.slice(0, -1); // Remove last character from input
+                        term.write('\b \b'); // Move cursor back, overwrite with space, then move back again
+                    }
+                    break;
+                case '\u001B[D': // Left arrow
+                    // Move cursor left (handle if you have a cursor position feature)
+                    term.write('\b'); // Move cursor left
+                    break;
+                case '\u001B[C': // Right arrow
+                    // Move cursor right (handle if you have a cursor position feature)
+                    term.write(' '); // Move cursor right visually
+                    term.write('\b'); // Return to the correct position
+                    break;
+                default: // Regular character input
+                    currentInput += data; // Add character to current input
+                    term.write(data); // Echo the character to the terminal
+                    break;
+            }
+        });
+
+
+
+        // Initial prompt
+        term.write('\r\n$ ');
+    </script>
+</body>
+</html>
+
