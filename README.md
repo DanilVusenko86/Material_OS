@@ -7,6 +7,7 @@
  <p>jszip: https://stuk.github.io/jszip/</p>
  <p>node-wifi: https://github.com/friedrith/node-wifi</p>
  <p>drivelist: https://github.com/balena-io-modules/drivelist</p>
+ <p>Materialize CSS: https://materializecss.com/</p>
  <h1>Apps</h1>
  <p>Calculator: https://github.com/mkspcd/CalculatorJS</p>
  <p>Camera</p>
