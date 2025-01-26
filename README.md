@@ -1,39 +1,68 @@
-<img src="system/img/branding.png" width="100px" height="100px">
-<h1>Material OS</h1>
- Material OS - based on Web and Linux
 
- <h1>Components</h1>
- <p>xterm: https://xtermjs.org/</p>
- <p>jszip: https://stuk.github.io/jszip/</p>
- <p>node-wifi: https://github.com/friedrith/node-wifi</p>
- <p>drivelist: https://github.com/balena-io-modules/drivelist</p>
- <p>Materialize CSS: https://materializecss.com/</p>
- <h1>Apps</h1>
- <p>Calculator: https://github.com/mkspcd/CalculatorJS</p>
- <p>Camera</p>
- <p>File Manager</p>
- <p>Gallery</p>
- <p>Material Market: https://materialmarket.netlify.app/</p>
- <p>Media Player: https://github.com/DanilVusenko86/Google-Play-Music-Unoffical-Player</p>
- <p>Settings</p>
- <p>Terminal</p>
- <p>Wallpapers</p>
- <p>Web Browser></p>
- <h1>Debugg</h1>
- <p>Open Folder With Material OS UI and then open "System" Folder and enter:</p>
- 
- ````
-php -S localhost:8000
- ````
+**Language:**    
+[English](README.md) | [Українська](README_UA.md)
+---
 
- <p>then open Material OS UI folder and enter:</p>
- 
- ````
-npm start
- ````
+<img src="system/img/branding.png" alt="Material OS Logo" width="120px" height="120px"></img>
+# Material OS
+<p>OS based on Web technologies and linux</p>
 
-<h1>Links</h1>
-<p>Telegram: https://t.me/inverterENG</p>
-<p>Telegram UA: https://t.me/InverterTechUA</p>
-<p>Youtube: https://www.youtube.com/@InverterWorkGroup</p>
-<p>Discord: https://discord.gg/tnpH4AAu</p>
+
+---
+
+## 🚀 Components
+
+Material OS is powered by several robust components:
+
+- [xterm.js](https://xtermjs.org/) - Terminal emulator for the web.
+- [jszip](https://stuk.github.io/jszip/) - ZIP file library.
+- [node-wifi](https://github.com/friedrith/node-wifi) - WiFi connections management.
+- [drivelist](https://github.com/balena-io-modules/drivelist) - Drive listing utility.
+- [Materialize CSS](https://materializecss.com/) - Frontend framework for responsive design.
+
+---
+
+## 📱 Apps
+
+Material OS comes with a suite of built-in applications:
+
+- [Calculator](https://github.com/mkspcd/CalculatorJS) - Perform quick calculations.
+- **Camera** - Capture photos and videos.
+- **File Manager** - Organize and manage your files.
+- **Gallery** - View your images.
+- [Material Market](https://materialmarket.netlify.app/) - Download and install apps.
+- [Media Player](https://github.com/DanilVusenko86/Google-Play-Music-Unoffical-Player) - Listen to your favorite music.
+- **Settings** - Customize and control your OS.
+- **Terminal** - Debug and install Linux apps to your OS.
+- **Wallpapers** - Customize your desktop background.
+- **Web Browser** - Browse the web.
+
+---
+
+## 🛠 Debugging
+
+To debug Material OS, follow these steps:
+
+1. Open the Material OS UI folder and navigate to the `system` folder.
+2. Start a local PHP server:
+   ```bash
+   php -S localhost:8000
+   ```
+3. Open the Material OS UI folder and run:
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🌐 Links
+
+Stay connected with the Material OS community:
+
+- **[Telegram](https://t.me/inverterENG)** - Join our global community.
+- **[Telegram UA](https://t.me/InverterTechUA)** - Ukrainian community.
+- **[YouTube](https://www.youtube.com/@InverterWorkGroup)** - Watch tutorials and updates.
+- **[Discord](https://discord.gg/tnpH4AAu)** - Join discussions and get support.
+
+---
+
