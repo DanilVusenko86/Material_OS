@@ -1,6 +1,6 @@
 
 **Language:**    
-[English](README.md) | [Українська](README_UA.md)
+[English](README.md) | [Українська](README_UA.md) | [日本語](README_JP.md)
 ---
 
 <img src="system/img/branding.png" alt="Material OS Logo" width="120px" height="120px"></img>
